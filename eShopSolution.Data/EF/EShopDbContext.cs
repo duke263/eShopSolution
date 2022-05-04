@@ -1,8 +1,8 @@
 ﻿using eShopSolution.Data.Configurations;
 using eShopSolution.Data.Entities;
 //using eShopSolution.Data.Extensions;
-//using Microsoft.AspNetCore.Identity;
-//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,13 +11,13 @@ using System.Text;
 namespace eShopSolution.Data.EF
 {
     public class EShopDbContext : DbContext
-        /*IdentityDbContext<AppUser, AppRole, Guid>*/
+        //IdentityDbContext<AppUser, AppRole, Guid>
     {
         public EShopDbContext(DbContextOptions options) : base(options)
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Configure using Fluent API
             modelBuilder.ApplyConfiguration(new CartConfiguration());
@@ -36,10 +36,10 @@ namespace eShopSolution.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
-            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
-            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
-            modelBuilder.ApplyConfiguration(new SlideConfiguration());
+            //modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            //modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+            //modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
+            //modelBuilder.ApplyConfiguration(new SlideConfiguration());
 
             //modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             //modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
@@ -76,8 +76,8 @@ namespace eShopSolution.Data.EF
 
         public DbSet<Transaction> Transactions { get; set; }
 
-        public DbSet<ProductImage> ProductImages { get; set; }
+        //public DbSet<ProductImage> ProductImages { get; set; }
 
-        public DbSet<Slide> Slides { get; set; }
+        //public DbSet<Slide> Slides { get; set; }
     }
 }
